@@ -11,6 +11,7 @@ function print(text) {
  */
 function isValid(name) {
   // ваш код...
+  return Boolean(name) && name.length >= 4 && !name.includes(" ");
 }
 
 function sayHello() {
@@ -22,3 +23,5 @@ function sayHello() {
     print('Некорректное имя');
   }
 }
+
+
