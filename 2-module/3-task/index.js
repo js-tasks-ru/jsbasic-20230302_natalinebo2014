@@ -2,14 +2,15 @@
 
 let calculator = {
   // ваш код
-  read() {
-    this.a = +prompt("Enter a value", 0);
-    this.b = +prompt("Enter b value", 0);
+  read(a, b) {
+   this.a = a;
+   this.b = b;
+   console.log(a, b);
+   console.log({ a: this.a, b: this.b });
+   return {a: this.a, b: this.b};
   },
 
   sum() {
-    console.log(this.a, this.b);
-    console.log(this.a + this.b);
     return this.a + this.b;
   },
   mul() {
@@ -17,8 +18,6 @@ let calculator = {
   },
 };
 
-//calculator.read();
-//console.log(calculator.sum());
-//console.log(calculator.mul());
+
 // НЕ УДАЛЯТЬ СТРОКУ, НУЖНА ДЛЯ ПРОВЕРКИ
 window.calculator = calculator; // делает ваш калькулятор доступным глобально
