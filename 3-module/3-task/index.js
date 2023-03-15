@@ -1,12 +1,21 @@
 function camelize(str) {
   // ваш код...
-  let arr = str.split("");
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] == "-") {
-      console.log(i);
-      arr[i + 1] = arr[i + 1][0].toUpperCase();
-    }
-  }
-  return arr.join("").split("-").join("");
+  let arr = str
+    .split("")
+    .map((item, index, array) => {
+      if (item === "-") {
+        console.log(index);
+        array[index + 1] = array[index + 1].toUpperCase();
+      }
+      return item;
+    })
+    .join("")
+    .split("-")
+    .join("");
+    console.log(arr);
+
+  return arr;
 }
+
+
 

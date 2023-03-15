@@ -1,15 +1,8 @@
 function showSalary(users, age) {
-  // ваш код...
-  let str = '';
-  users.forEach(user => {
-    if (user.age <= age) {
-      str += `${user.name}, ${user.balance}\n`;
-    }
-  });
-  return str
-    .split("\n")
-    .filter((item) => item !== "")
-    .join("\n");
+  let str = users.filter(user => user.age <= age).map(user => user.name + ', ' + user.balance).join('\n').trim();
+  console.log(str.length);
+  return str;
 }
+
 
 
