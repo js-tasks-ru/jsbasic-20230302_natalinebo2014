@@ -11,7 +11,11 @@ function initCarousel() {
   let currentSlide = 0;
 
   if (currentSlide === 0) {
-    leftBtn.style.display = "none";
+    setDisplay(leftBtn, "none"); //leftBtn.style.display = "none";
+  }
+
+  function setDisplay(elem, display) {
+    elem.style.display = display;
   }
 
   leftBtn.addEventListener('click', function() {
@@ -19,10 +23,10 @@ function initCarousel() {
     let shiftValue = offsetValue * currentSlide;
 
     carouselInner.style.transform = `translateX(-${shiftValue}px)`;
-    carouselBtns.forEach(btn => btn.style.display = '');
+    carouselBtns.forEach(btn => setDisplay(btn, ''));            //btn.style.display = '');
 
     if (currentSlide <= 0) {
-      this.style.display = 'none';
+      setDisplay(this, 'none');   //this.style.display = 'none';
     }
   });
 
@@ -31,10 +35,10 @@ function initCarousel() {
     currentSlide++;
     let shiftValue = offsetValue * currentSlide;
     carouselInner.style.transform = `translateX(-${shiftValue}px)`;
-    carouselBtns.forEach((btn) => (btn.style.display = ""));
+    carouselBtns.forEach((btn) => setDisplay(btn, ''));      //(btn.style.display = ""));
 
     if (currentSlide >= carouselSlides.length - 1) {
-      this.style.display = "none";
+      setDisplay(this, 'none');   //this.style.display = "none";
     }
-  }); 
+  });
 }
