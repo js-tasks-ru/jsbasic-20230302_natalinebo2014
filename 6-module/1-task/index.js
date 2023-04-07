@@ -35,8 +35,9 @@ export default class UserTable {
           </tr>
       </thead>
       <tbody>
-         ${this.rows.map(
-           (row) => `
+         ${this.rows
+           .map(
+             (row) => `
               <tr>
                 <td>${row.name}</td>
                 <td>${row.age}</td>
@@ -45,7 +46,8 @@ export default class UserTable {
                 <td><button class="delete-btn">X</button></td>
               </tr>
          `
-         )}
+           )
+           .join("")}
     </tbody>
 `;
 
@@ -57,7 +59,7 @@ export default class UserTable {
     });
 
     return elem;
-    
+
   }
 }
 

@@ -9,22 +9,23 @@ export default class ProductCard {
   }
 
   #addBtnClick = (event, product) => {
-    console.log(this.product.id)
-      if (event.target.closest('.card__button')) {
-        const statusEvent = new CustomEvent("product-add", {
-          detail: this.product.id,
-          bubbles: true,
-        });
-
-        event.target.dispatchEvent(statusEvent);
-      }
-  }
+    if (event.target.closest(".card__button")) {
+      const statusEvent = new CustomEvent("product-add", {
+        detail: this.product.id,
+        bubbles: true,
+      });
+      console.log(this.product);
+      event.target.dispatchEvent(statusEvent);
+    }
+  };
 
   #render() {
     const elem = createElement(`
       <div class="card">
         <div class="card__top">
-            <img src="../../assets/images/products/${this.product.image}" class="card__image" alt="product">
+            <img src="../../assets/images/products/${
+              this.product.image
+            }" class="card__image" alt="product">
             <span class="card__price">€${this.product.price.toFixed(2)}</span>
         </div>
         <div class="card__body">
@@ -36,7 +37,7 @@ export default class ProductCard {
       </div>
     `);
 
-    elem.addEventListener('click', this.#addBtnClick);
+    elem.addEventListener("click", this.#addBtnClick);
 
     return elem;
   }
